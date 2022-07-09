@@ -6,3 +6,6 @@ setup-air:
 
 serve:
 	air
+
+generate:
+	cd api && docker-compose up --build
