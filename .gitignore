@@ -29,6 +29,4 @@ go.work
 /Godeps/
 
 tmp
-api/out
-
 # End of https://www.toptal.com/developers/gitignore/api/go
