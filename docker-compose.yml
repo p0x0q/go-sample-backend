@@ -11,4 +11,4 @@ services:
     ports:
       - "8081:8080"
     volumes:
-      - './api/out/go:/go/src/app'
+      - './:/go/src/app'
