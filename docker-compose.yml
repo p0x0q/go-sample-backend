@@ -7,7 +7,7 @@ services:
     command: air
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./docker/go/Dockerfile
     ports:
       - "8081:8080"
     volumes:
