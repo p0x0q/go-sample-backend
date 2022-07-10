@@ -1,4 +1,4 @@
-module app
+module github.com/aipco/aipco-backend
 
 go 1.16
 
