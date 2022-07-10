@@ -19,11 +19,11 @@ import (
 	//
 	//sw "github.com/GIT_USER_ID/GIT_REPO_ID/go"
 	//
-	sw "./go"
+	sw "github.com/aipco/aipco-backend/go"
 )
 
 func main() {
-	log.Printf("Server started")
+	log.Printf("Server starteds")
 
 	router := sw.NewRouter()
 
