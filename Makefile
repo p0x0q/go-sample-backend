@@ -1,5 +1,5 @@
 serve:
-	docker-compose up
+	docker-compose up --build
 
 generate:
 	cd api && docker-compose up --build

@@ -5,7 +5,7 @@ services:
     command: >
       generate 
         -i /local/petstone.yaml
-        -g go 
+        -g go-server
         -o /local/out/go
     volumes:
       - '.:/local'
