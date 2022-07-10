@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  app:
+    image: openapitools/openapi-generator-cli:v6.0.1
+    command: >
+      generate 
+        -i /local/docker/openapi-generator/petstone.yaml
+        -g go-gin-server
+        -o /local/
+    volumes:
+      - '../../:/local'

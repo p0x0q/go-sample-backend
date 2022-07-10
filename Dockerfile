@@ -1,12 +1,15 @@
-# goバージョン
-FROM golang:1.16.3-alpine
-# アップデートとgitのインストール！！
-RUN apk add --update &&  apk add git
-# appディレクトリの作成
-RUN mkdir /go/src/app
-# ワーキングディレクトリの設定
-WORKDIR /go/src/app
-# ホストのファイルをコンテナの作業ディレクトリに移行
-ADD . /go/src/app
+FROM golang:1.10 AS build
+WORKDIR /go/src
+COPY go ./go
+COPY main.go .
 
-RUN go get -u github.com/cosmtrek/air
+ENV CGO_ENABLED=0
+RUN go get -d -v ./...
+
+RUN go build -a -installsuffix cgo -o openapi .
+
+FROM scratch AS runtime
+ENV GIN_MODE=release
+COPY --from=build /go/src/openapi ./
+EXPOSE 8080/tcp
+ENTRYPOINT ["./openapi"]
