@@ -13,7 +13,7 @@ import (
 	"log"
 	"net/http"
 
-	openapi "github.com/aipco/aipco-backend/out/go"
+	openapi "github.com/aipco/aipco-backend/go"
 )
 
 func main() {
