@@ -11,8 +11,8 @@ package openapi
 
 import (
 	"context"
-	"errors"
 	"net/http"
+	"errors"
 )
 
 // PetsApiService is a service that implements the logic for the PetsApiServicer
