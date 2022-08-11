@@ -11,21 +11,18 @@ package main
 
 import (
 	"log"
+	"net/http"
 
-	// WARNING!
-	// Change this to a fully-qualified import path
-	// once you place this file into your project.
-	// For example,
-	//
-	//sw "github.com/GIT_USER_ID/GIT_REPO_ID/go"
-	//
-	sw "github.com/aipco/aipco-backend/go"
+	openapi "github.com/GIT_USER_ID/GIT_REPO_ID/go"
 )
 
 func main() {
-	log.Printf("Server starteds")
+	log.Printf("Server started")
 
-	router := sw.NewRouter()
+	PetsApiService := openapi.NewPetsApiService()
+	PetsApiController := openapi.NewPetsApiController(PetsApiService)
 
-	log.Fatal(router.Run(":8080"))
+	router := openapi.NewRouter(PetsApiController)
+
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
