@@ -1,5 +1,5 @@
 {
     "featureCORS": true,
-    "onlyInterfaces": false,
+    "onlyInterfaces": true,
     "sourceFolder": "openapigen"
 }
