@@ -5,7 +5,8 @@ services:
     command: >
       generate 
         -i /local/docker/openapi-generator/petstone.yaml
-        -g go-gin-server
+        -g go-server
         -o /local/
+        -c /local/docker/openapi-generator/go-server-config.json
     volumes:
       - '../../:/local'
