@@ -1,0 +1,14 @@
+Dockerfile
+README.md
+api/openapi.yaml
+go.mod
+main.go
+openapigen/api.go
+openapigen/api_pets.go
+openapigen/error.go
+openapigen/helpers.go
+openapigen/impl.go
+openapigen/logger.go
+openapigen/model_error.go
+openapigen/model_pet.go
+openapigen/routers.go
