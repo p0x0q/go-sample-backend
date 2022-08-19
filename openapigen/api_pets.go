@@ -10,13 +10,16 @@
 package openapi
 
 import (
+	"encoding/json"
 	"net/http"
 	"strings"
+
+	"github.com/gorilla/mux"
 )
 
 // PetsApiController binds http requests to an api service and writes the service results to the http response
 type PetsApiController struct {
-	service      PetsApiServicer
+	service PetsApiServicer
 	errorHandler ErrorHandler
 }
 
@@ -46,7 +49,7 @@ func NewPetsApiController(s PetsApiServicer, opts ...PetsApiOption) Router {
 
 // Routes returns all the api routes for the PetsApiController
 func (c *PetsApiController) Routes() Routes {
-	return Routes{
+	return Routes{ 
 		{
 			"ListCats",
 			strings.ToUpper("Get"),
