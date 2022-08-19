@@ -14,22 +14,21 @@ import (
 	"net/http"
 )
 
-
-
 // PetsApiRouter defines the required methods for binding the api requests to a responses for the PetsApi
 // The PetsApiRouter implementation should parse necessary information from the http request,
 // pass the data to a PetsApiServicer to perform the required actions, then write the service results to the http response.
-type PetsApiRouter interface { 
+type PetsApiRouter interface {
 	ListCats(http.ResponseWriter, *http.Request)
 	ListPets(http.ResponseWriter, *http.Request)
 }
-
 
 // PetsApiServicer defines the api actions for the PetsApi service
 // This interface intended to stay up to date with the openapi yaml used to generate it,
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
-type PetsApiServicer interface { 
+type PetsApiServicer interface {
 	ListCats(context.Context, int32) (ImplResponse, error)
 	ListPets(context.Context, int32) (ImplResponse, error)
 }
+
+//a

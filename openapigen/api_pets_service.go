@@ -11,8 +11,8 @@ package openapi
 
 import (
 	"context"
-	"net/http"
 	"errors"
+	"net/http"
 )
 
 // PetsApiService is a service that implements the logic for the PetsApiServicer
@@ -21,6 +21,7 @@ import (
 type PetsApiService struct {
 }
 
+//
 // NewPetsApiService creates a default api service
 func NewPetsApiService() PetsApiServicer {
 	return &PetsApiService{}
