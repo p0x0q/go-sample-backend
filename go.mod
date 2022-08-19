@@ -1,4 +1,4 @@
-module github.com/aipco/aipco-backend/go
+module github.com/p0x0q/go-sample-backend
 
 go 1.13
 

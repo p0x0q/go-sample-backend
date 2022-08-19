@@ -13,7 +13,7 @@ import (
 	"log"
 	"net/http"
 
-	openapi "github.com/aipco/aipco-backend/go"
+	openapi "github.com/p0x0q/go-sample-backend/go"
 )
 
 func main() {
