@@ -5,6 +5,7 @@ go.mod
 main.go
 openapigen/api.go
 openapigen/api_pets.go
+openapigen/api_pets_service.go
 openapigen/error.go
 openapigen/helpers.go
 openapigen/impl.go

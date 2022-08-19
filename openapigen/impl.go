@@ -14,5 +14,3 @@ type ImplResponse struct {
 	Code int
 	Body interface{}
 }
-
-//a
