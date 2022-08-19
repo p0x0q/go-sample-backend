@@ -39,10 +39,10 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-  /petsV2:
+  /cats:
     get:
       summary: List all pets
-      operationId: listPets
+      operationId: listCats
       tags:
         - pets
       parameters:

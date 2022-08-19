@@ -10,16 +10,13 @@
 package openapi
 
 import (
-	"encoding/json"
 	"net/http"
 	"strings"
-
-	"github.com/gorilla/mux"
 )
 
 // PetsApiController binds http requests to an api service and writes the service results to the http response
 type PetsApiController struct {
-	service PetsApiServicer
+	service      PetsApiServicer
 	errorHandler ErrorHandler
 }
 
@@ -49,7 +46,13 @@ func NewPetsApiController(s PetsApiServicer, opts ...PetsApiOption) Router {
 
 // Routes returns all the api routes for the PetsApiController
 func (c *PetsApiController) Routes() Routes {
-	return Routes{ 
+	return Routes{
+		{
+			"ListCats",
+			strings.ToUpper("Get"),
+			"/v1/catsa",
+			c.ListCats,
+		},
 		{
 			"ListPets",
 			strings.ToUpper("Get"),
@@ -57,6 +60,25 @@ func (c *PetsApiController) Routes() Routes {
 			c.ListPets,
 		},
 	}
+}
+
+// ListCats - List all pets
+func (c *PetsApiController) ListCats(w http.ResponseWriter, r *http.Request) {
+	query := r.URL.Query()
+	limitParam, err := parseInt32Parameter(query.Get("limit"), false)
+	if err != nil {
+		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+		return
+	}
+	result, err := c.service.ListCats(r.Context(), limitParam)
+	// If an error occurred, encode the error with the status code
+	if err != nil {
+		c.errorHandler(w, r, err, &result)
+		return
+	}
+	// If no error, encode the body and the result code
+	EncodeJSONResponse(result.Body, &result.Code, w)
+
 }
 
 // ListPets - List all pets

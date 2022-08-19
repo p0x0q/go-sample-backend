@@ -20,6 +20,7 @@ import (
 // The PetsApiRouter implementation should parse necessary information from the http request,
 // pass the data to a PetsApiServicer to perform the required actions, then write the service results to the http response.
 type PetsApiRouter interface { 
+	ListCats(http.ResponseWriter, *http.Request)
 	ListPets(http.ResponseWriter, *http.Request)
 }
 
@@ -29,5 +30,6 @@ type PetsApiRouter interface {
 // while the service implementation can be ignored with the .openapi-generator-ignore file
 // and updated with the logic required for the API.
 type PetsApiServicer interface { 
+	ListCats(context.Context, int32) (ImplResponse, error)
 	ListPets(context.Context, int32) (ImplResponse, error)
 }

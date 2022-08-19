@@ -43,6 +43,42 @@ paths:
       summary: List all pets
       tags:
       - pets
+  /cats:
+    get:
+      operationId: listCats
+      parameters:
+      - description: How many items to return at one time (max 100)
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pets'
+          description: A paged array of pets
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              explode: false
+              schema:
+                type: string
+              style: simple
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: unexpected error
+      summary: List all pets
+      tags:
+      - pets
 components:
   schemas:
     Pet:
