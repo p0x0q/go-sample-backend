@@ -9,8 +9,8 @@
 
 package openapi
 
+//a
 type Pet struct {
-
 	Id int64 `json:"id"`
 
 	Name string `json:"name"`
@@ -21,7 +21,7 @@ type Pet struct {
 // AssertPetRequired checks if the required fields are not zero-ed
 func AssertPetRequired(obj Pet) error {
 	elements := map[string]interface{}{
-		"id": obj.Id,
+		"id":   obj.Id,
 		"name": obj.Name,
 	}
 	for name, el := range elements {
